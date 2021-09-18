@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar target/news-and-its-types-0.0.1.jar
