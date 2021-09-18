@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Новости</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-center py-3">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/" class="nav-link">Типы новостей</a></li>
+                <li class="nav-item"><a href="/news" class="nav-link active" aria-current="page">Новости</a>
+            </ul>
+        </header>
+    </div>
+    <div class="container mt-5">
+        <h4>
+            Новости - <a href="" th:text="${newsType.getName()} + ' (' + ${newsType.getColor()} + ')'"></a>
+        </h4>
+        <div th:each="element : ${newsList}" class="alert alert-info mt-2">
+            <h3 th:text="${element.heading}"></h3>
+            <p th:text="${element.shortDescription}"></p>
+            <a th:href="'/news/' + ${element.id}" class="btn btn-info btn-sm">Подробнее</a>
+        </div>
+    </div>
+</body>
+</html>
